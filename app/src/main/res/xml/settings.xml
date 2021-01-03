@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:defaultValue="@string/default_settings_units"
+        android:dialogTitle="@string/dialog_title_units"
+        android:entries="@array/units"
+        android:entryValues="@array/units"
+        android:key="@string/key_units"
+        android:summary="@string/dialog_summary_units"
+        android:title="@string/title_units" />
+    <CheckBoxPreference
+        android:key="chb2"
+        android:summary="Description of checkbox 2"
+        android:title="CheckBox 2">
+    </CheckBoxPreference>
+</PreferenceScreen>
