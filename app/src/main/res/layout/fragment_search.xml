@@ -47,9 +47,19 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:visibility="@{viewModel.isNullWeatherResponse() ? View.VISIBLE : View.GONE }"
+            android:visibility="@{viewModel.isNullWeatherResponse ? View.VISIBLE : View.GONE }"
             tools:context=".ui.home.HomeFragment">
 
+            <TextView
+                android:id="@+id/tVCountrySearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:visibility="@{viewModel.enableCountry ? View.VISIBLE : View.GONE}"
+                android:text="@{viewModel.displayedWeatherResponse.sys.country}"
+                android:textSize="34sp"
+                tools:text="Country" />
             <TextView
                 android:id="@+id/tVCity"
                 android:layout_width="wrap_content"

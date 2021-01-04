@@ -11,8 +11,9 @@
         android:summary="@string/dialog_summary_units"
         android:title="@string/title_units" />
     <CheckBoxPreference
-        android:key="chb2"
-        android:summary="Description of checkbox 2"
-        android:title="CheckBox 2">
+        android:key="@string/key_country"
+        android:summary="@string/summary_country"
+        android:title="@string/title_country"
+        android:defaultValue="false">
     </CheckBoxPreference>
 </PreferenceScreen>

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Weather</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_search">Search</string>
     <string name="title_settings">Settings</string>
 
     <string name="change_city">Change city</string>
@@ -38,4 +38,11 @@
     <string name="dialog_summary_units">Choose units for temperature</string>
     <string name="title_units">Units</string>
     <string name="button_search">Search</string>
+    <string name="key_country">country_on</string>
+    <string name="title_country">Сountry display</string>
+    <string name="summary_country">When the parameter is enabled, the country will be displayed</string>
+    <string name="temp_now">Temperature now</string>
+    <string name="weather_channel_id">weather_channel_01</string>
+    <string name="weather_char_sequence">Temperature now</string>
+    <string name="weather_description">Temperature now</string>
 </resources>

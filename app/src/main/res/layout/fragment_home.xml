@@ -5,6 +5,7 @@
 
     <data>
         <variable name="viewModel" type="com.test.weather.ui.home.HomeViewModel" />
+        <import type="android.view.View"/>
     </data>
 
     <LinearLayout
@@ -13,6 +14,17 @@
         android:orientation="vertical"
         android:gravity="center_horizontal"
         tools:context=".ui.home.HomeFragment">
+
+        <TextView
+            android:id="@+id/tVCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:visibility="@{viewModel.enableCountry ? View.VISIBLE : View.GONE}"
+            android:text="@{viewModel.displayedWeatherResponse.sys.country}"
+            android:textSize="34sp"
+            tools:text="Country" />
 
         <TextView
             android:id="@+id/tVCity"
