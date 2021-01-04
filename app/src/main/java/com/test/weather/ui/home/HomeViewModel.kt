@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit
 class HomeViewModel constructor(application: Application) : AndroidViewModel(application) {
 
     private var preferenceManager = PreferenceManager.getDefaultSharedPreferences(application)
-    private val isEnableCountry:Boolean = preferenceManager.getBoolean(application.getString(R.string.key_country).toString(), false)
+    public val isEnableCountry:Boolean = preferenceManager.getBoolean(application.getString(R.string.key_country).toString(), false)
 
     var weatherResponseMutableLiveData: MutableLiveData<WeatherResponse> =
                                                                 MutableLiveData<WeatherResponse>()

@@ -14,6 +14,7 @@ import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.test.weather.R
 import com.test.weather.ui.MainActivity
+import java.util.concurrent.TimeUnit
 
 
 class WeatherWorker(_context: Context, workerParameters: WorkerParameters)
@@ -22,7 +23,7 @@ class WeatherWorker(_context: Context, workerParameters: WorkerParameters)
     private val context = _context
 
     override fun doWork(): Result {
-        //TimeUnit.MINUTES.sleep(60)
+        TimeUnit.MINUTES.sleep(1)
         notificationTemp()
         return Result.success()
     }
@@ -30,14 +31,14 @@ class WeatherWorker(_context: Context, workerParameters: WorkerParameters)
     private fun notificationTemp(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val weatherResponse = Weather(context, Location(context).location).getLocationWeatherNotification()
-            val NOTIFICATION_ID = 234
+            val notificationID = 234
             val notificationManager:NotificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            val CHANNEL_ID = context.getString(R.string.weather_channel_id)
+            val channelID = context.getString(R.string.weather_channel_id)
             val name: CharSequence = context.getString(R.string.weather_char_sequence)
-            val Description = context.getString(R.string.weather_description)
+            val description = context.getString(R.string.weather_description)
             val importance = NotificationManager.IMPORTANCE_HIGH
-            val mChannel = NotificationChannel(CHANNEL_ID, name, importance)
-            mChannel.description = Description
+            val mChannel = NotificationChannel(channelID, name, importance)
+            mChannel.description = description
             mChannel.enableLights(true)
             mChannel.lightColor = Color.RED
             mChannel.enableVibration(true)
@@ -46,7 +47,7 @@ class WeatherWorker(_context: Context, workerParameters: WorkerParameters)
             notificationManager.createNotificationChannel(mChannel)
 
 
-            val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+            val builder = NotificationCompat.Builder(context, channelID)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(context.getString(R.string.temp_now))
                 .setContentText((weatherResponse.value?.temperature?.temp?:"" + ""))
@@ -59,7 +60,7 @@ class WeatherWorker(_context: Context, workerParameters: WorkerParameters)
             val resultPendingIntent: PendingIntent =
                 stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
             builder.setContentIntent(resultPendingIntent)
-            notificationManager.notify(NOTIFICATION_ID, builder.build())
+            notificationManager.notify(notificationID, builder.build())
         }
     }
 }
